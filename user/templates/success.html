@@ -1,0 +1,16 @@
+{% extends 'parent.html'}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuccessFul </title>
+</head>
+<body style="text-align: center; padding: 50px;">
+    <div class="message" style=" background-color: #d4edda; color: #155724; padding: 20px; border: 1px solid #c3e6cb;  border-radius: 5px; display: inline-block;" >
+        <h1>Registration Successful!</h1>
+        <p>Thank you for registering. Your information has been submitted successfully.</p>
+    </div>
+    <a class="text-decoration-underline" style="display: block; margin-top: 20px; color: #007bff; text-decoration: none;" href="{% url 'service' %}">Go to Homepage</a>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends 'adminparent.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin- Customer Management </title>
+</head>
+<body>
+    
+
+{% block body %}
+<h1 class="text-center text-success"><u>Customer Management</u></h1>
+    <h2 class="text-center">Registered Users</h2>
+    <table border="1" class=" table-bordered table-responsive mx-auto ">
+        <thead class="text-center">
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Mobile Number</th>
+                <th>License Number</th>
+                <th>License Picture</th>
+                <th>Signature Picture</th>
+                <th colspan="2">Action</th>
+                
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.fullname }}</td>
+                <td>{{ user.emailid }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.mob_number }}</td>
+                <td>{{ user.licensenumber }}</td>
+                <td><img src="{{ user.licensepic.url }}" alt="License" width="100"></td>
+                <td><img src="{{ user.signpic.url }}" alt="Signature" width="100"></td>
+                
+                <td><a href="{% url 'adminapp:delcust' id=user.id %}" class="btn btn-danger">Delete</a></td>
+               <td><button class="btn btn-primary" onclick="verifyUser(this)">Verify</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        
+        function verifyUser(button) {
+            alert("User Verified");
+            button.classList.remove('btn-primary');
+            button.classList.add('btn-success');
+            button.innerText = 'Verified';  
+        }
+    </script>
+   
+    {% endblock %}
+</body>
+</html>

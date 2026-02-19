@@ -1,0 +1,160 @@
+{% extends 'parent.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Now</title>
+    <style>
+        /* Style the video element to be displayed in the form */
+        video {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            margin-bottom: 10px;
+        }
+        /* Style for the capture button */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Style for the captured image */
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            border: 2px solid #ccc;
+        }
+    </style>
+    <script>
+        
+        function showDialog(message) {
+            alert(message); 
+        }
+    </script>
+</head>
+<body>
+   
+   
+    {% block slider %}
+    <div class="row py-5" style="background-image: url({% static 'img/4.jpg' %}); background-repeat:no-repeat; background-position:center; background-size:cover; height: 50vh;">
+        <div class="col-sm-10 mx-auto py-5">
+            <a href="{% url 'index' %}" class="text-decoration-none">
+                <span class="text-primary">Home</span>
+            </a>
+            {% block text %}
+            <span class="text-white mt-3"> / Register</span>
+            <h2 class="text-light my-4">Registration</h2>
+            {% endblock %}
+        </div>
+    </div>
+    {% endblock %}
+   
+
+    {% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center py-4">
+            <div class="col-12 col-md-8 col-lg-6" style="box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px;">
+                <div class="registration my-1 bg-light p-4 rounded">
+                    <u><h3 class="text-center py-3"><b>Register Now</b></h3></u>
+                    <form action="{% url 'registration' %}" method="post" enctype="multipart/form-data"> 
+                        {% csrf_token %}
+                       
+                        <div class="mb-3">
+                            <label class="form-label" for="fullname">Full Name</label>
+                            <input class="form-control" type="text" id="fullname" name="fullname" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label" for="emailid">Email Address</label>
+                            <input class="form-control" type="email" id="emailid" name="emailid" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Enter Password</label>
+                            <input class="form-control" type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label" for="mob_number">Mobile Number</label>
+                            <input class="form-control" type="tel" id="mob_number" name="mob_number" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="licensenumber">License Number</label>
+                            <input class="form-control" type="text" id="licensenumber" name="licensenumber" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label class="form-label" for="licensepic">Upload License Card</label>
+                            <input type="file" class="form-control" id="licensepic" name="licensepic" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="signpic">Upload User Photo</label>
+                            <input type="file" class="form-control" id="signpic" name="signpic" required>
+                        </div>
+                       <div class="text-center">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    
+                        <p class="form-text mt-3 text-center">Already registered? <a href="{% url 'signin' %}">Login here</a></p>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    
+
+    <script>
+        // Access the user's webcam
+        // const video = document.getElementById('video');
+        // const canvas = document.getElementById('canvas');
+        // const capturedPhoto = document.getElementById('captured-photo');
+        // const captureButton = document.getElementById('capture');
+        // const userpicInput = document.getElementById('userpic');
+
+        // Function to start the webcam stream
+        // function startWebcam() {
+        //     navigator.mediaDevices.getUserMedia({ video: true })
+        //         .then(function(stream) {
+        //             // Set the video source to the webcam stream
+        //             video.srcObject = stream;
+        //         })
+        //         .catch(function(error) {
+        //             console.error('Error accessing webcam:', error);
+        //             alert('Could not access webcam. Please make sure it is enabled.');
+        //         });
+        // }
+
+        // // Start the webcam when the page loads
+        // startWebcam();
+
+        // Capture photo when the button is clicked
+        // captureButton.addEventListener('click', function() {
+            // Ensure the canvas is the same size as the video element
+            // canvas.width = video.videoWidth;
+            // canvas.height = video.videoHeight;
+
+            // Draw the current video frame onto the canvas
+            // const context = canvas.getContext('2d');
+            // context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // const dataUrl = canvas.toDataURL('image/png');
+            // capturedPhoto.src = dataUrl;
+            // capturedPhoto.style.display = 'block'; 
+
+            // userpicInput.value = dataUrl;
+        // });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+.login-container {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+}
+.box1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+}
+.box2 {
+    padding: 20px;
+}
+.box2 button {
+    transition: background-color 0.3s ease;
+    
+}
+.box2 button:hover {
+    background-color: #2851a3;
+}
+@media (max-width: 768px) {
+    .box1 img {
+        border-radius: 10px 10px 0 0;
+    }
+}

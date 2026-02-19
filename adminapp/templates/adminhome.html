@@ -1,0 +1,35 @@
+{% extends "adminparent.html" %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 style="text-align:center;">Admin Home</h1>   
+            <div class="row my-4">
+            <div class="col-sm-4">
+                <div class="card shadow p-3">
+                    <h4><i class="fa-solid fa-user-graduate fs-1 ms-3 text-warning"></i><span class="ms-5">Providers</span></h4>
+                    <h3 class="text-center pt-3 text-warning">{{provider_count}}</h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card shadow p-3">
+                    <h4><i class="fa-solid fa-chalkboard-user fs-1 ms-3 text-primary"></i><span class="ms-5">Users </span></h4>
+                    <h3 class="text-center pt-3 text-primary">{{register_count}}</h3>
+                </div>
+            </div>
+            
+            <div class="col-sm-4">
+                <div class="card shadow p-3">
+                    <h4><i class="fa-solid fa-users-rectangle fs-1 ms-3 text-success"></i><span class="ms-5"></span></h4>
+                    <h3 class="text-center pt-3 text-success"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4 my-4">
+                <div class="card shadow p-3">
+                    <h4><i class="fa-solid fa-book fs-1 ms-3 text-danger"></i><span class="ms-5"></span></h4>
+                    <h3 class="text-center pt-3 text-danger"></h3>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

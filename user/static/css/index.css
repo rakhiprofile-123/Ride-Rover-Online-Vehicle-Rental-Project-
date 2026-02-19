@@ -1,0 +1,262 @@
+.custom-btn {
+  height: 8vh;
+  width: 15vw;
+  background-color: #073B4C; /* Main background color */
+  color: white; /* Text color */
+  border: 2px solid white; /* White border */
+  border-radius: 50px; /* Rounded pill shape */
+  font-size: 1.2rem; /* Adjust font size for readability */
+  transition: background-color 0.3s, color 0.3s; /* Smooth hover transition */
+}
+
+/* Hover effect for buttons */
+.custom-btn:hover {
+  background-color: #B1A374; /* Change background color on hover */
+  color: #073B4C; /* Change text color on hover */
+  border: 2px solid #073B4C; /* Darker border on hover */
+}
+
+/* Adjust the button size and layout for smaller screens */
+@media (max-width: 768px) {
+  .custom-btn {
+    width: 80%; /* Increase button width to fit mobile view */
+    height: 7vh; /* Slightly reduce height on smaller screens */
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #073B4C;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  color: #232323;
+  margin-bottom: 2rem;
+}
+
+/* Step Cards */
+.step-card {
+  border: none;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #f9f9f9;
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.step-wrapper {
+  background-color: #073B4C;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.step {
+  font-size: 1.8rem;
+  color: white;
+  font-weight: bold;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  color: #073B4C;
+  font-weight: bold;
+}
+
+.step-text {
+  font-size: 1.1rem;
+  color: #232323;
+}
+
+/* Links */
+.text-link {
+  color: #073B4C;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.text-link:hover {
+  color: #B1A374;
+  text-decoration: underline;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .step-title {
+    font-size: 1.2rem;
+  }
+
+  .step-text {
+    font-size: 1rem;
+  }
+
+  .step-card {
+    padding: 20px;
+  }
+}
+/* Animation for Text */
+.animate-text {
+        opacity: 0;
+        animation: fadeIn 2s ease-in-out forwards;
+      }
+    
+      /* Fade In Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      /* Button Styling */
+      .custom-btn {
+        background-color: #073B4C;
+        color: white;
+        border-radius: 50px;
+        height: 8vh;
+        width: 15vw;
+        font-size: 1.5vw;
+        border: 2px solid #073B4C;
+        transition: all 0.4s ease;
+      }
+    
+      /* Button Hover Effect */
+      .custom-btn:hover {
+        background-color: white;
+        color: #073B4C;
+        border-color: #073B4C;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+      }
+    
+      /* Responsive Design for Small Screens */
+      @media (max-width: 768px) {
+        .custom-btn {
+          height: 7vh;
+          width: 40vw;
+          font-size: 3.5vw;
+        }
+    
+        .animate-text span {
+          font-size: 8vw;
+        }
+    
+        .animate-text p {
+          font-size: 4.5vw;
+        }
+      }
+
+      .navbar{
+        backdrop-filter: blur(30px);
+        box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+        border: 2px solid rgba(255, 255, 255, 0.18);
+
+      }
+      /* #073B4C; */
+      .footer {
+background-color: #073B4C; /* Footer background color */
+color: white; /* Text color */
+padding: 40px 0;
+font-family: Arial, sans-serif;
+}
+
+.footer a {
+color: #B1A374; /* Link color */
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.footer a:hover {
+color: white; /* Change link color on hover */
+}
+
+.footer-logo img {
+max-width: 150px; /* Adjust logo size */
+margin-bottom: 20px;
+}
+
+.footer-tagline {
+font-size: 1rem;
+margin: 20px 0;
+}
+
+.social-icons {
+list-style: none;
+padding-left: 50%;
+display: flex;
+gap: 15px;
+}
+
+.social-icons li a {
+font-size: 1.5rem;
+color: #B1A374;
+transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons li a:hover {
+color: white; /* Highlight icon color on hover */
+transform: scale(1.1); /* Slightly enlarge icons */
+}
+
+.footer-right {
+margin-top: 30px;
+}
+
+.footer-menu {
+display: flex;
+justify-content: space-between;
+list-style: none;
+padding: 0;
+}
+
+.footer-menu li {
+margin-right: 20px;
+}
+
+.footer-menu .menu-title {
+font-size: 1.2rem;
+font-weight: bold;
+margin-bottom: 15px;
+}
+
+.footer-menu ul {
+list-style: none;
+padding: 0;
+}
+
+.footer-menu ul li {
+margin-bottom: 10px;
+}
+
+.footer-bottom {
+margin-top: 30px;
+border-top: 1px solid #B1A374;
+padding-top: 20px;
+text-align: center;
+font-size: 0.9rem;
+}

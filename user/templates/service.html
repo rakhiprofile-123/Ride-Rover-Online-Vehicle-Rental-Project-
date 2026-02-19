@@ -1,0 +1,93 @@
+{% extends 'parent.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Service</title>
+        <link rel="stylesheet" href="{% static 'css/service.css' %}" type="text/css">
+        <style>
+            .card {
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                border-radius: 12px;
+                overflow: hidden;
+                background: #fff; 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card:hover {
+                transform: translateY(-10px); 
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+            }
+            
+            .card-img-top {
+                height: 200px; 
+                width: 100%; 
+                object-fit: cover; 
+            }
+
+            .card-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 15px;
+            }
+
+            .btn-primary {
+                margin-top: auto; 
+            }
+        </style>
+    </head>
+    <body>
+        {% block slider %}
+<div class="row py-5"  style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url({%static 'img/4.jpg'%}); background-repeat:no-repeat; background-position:center; background-size:cover; height: 40vh;">
+    <div class="col-sm-10 mx-auto py-5     text-white" >
+        <a href="{% url 'index' %}" class="text-decoration-none">
+            <span class="text-primary fw-bold">Home</span>
+        </a>
+        <span class="text-white mt-2"> /Service<span>
+        <h2 class="text-light my-4 display-4">Service</h2>
+    
+    </div>
+</div>
+{% endblock %}
+
+        {% block body %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="mt-2">Renting Fleet</h2>
+                    <p class="text-center">Choose your fleet, make every journey sweet</p>
+                </div>
+            </div>
+            <div class="row">
+                {% for vehicle in vehicles %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ vehicle.image.url }}" class="card-img-top w-100" alt="{{ vehicle.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ vehicle.name }}</h5>
+                            <p class="card-text">₹{{ vehicle.price_per_day }} /- per day</p>
+                            <p class="card-text">₹{{ vehicle.security_deposit }} Security Deposit Fee (Refundable)</p>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'book_vehicle' vehicle.id %}" class="btn btn-primary btn-book">Book Now</a>
+                            {% else %}
+                             <a href="{% url 'signin' %}" class="btn btn-secondary">Log In to Book</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+           
+        </div>
+        {% endblock %}
+    </body>
+</html>

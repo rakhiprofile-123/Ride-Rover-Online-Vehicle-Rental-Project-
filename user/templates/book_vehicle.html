@@ -1,0 +1,250 @@
+{% extends 'parent.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book {{ vehicle.name }} - Your Trusted Vehicle Rental</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            .vehicle-features {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 20px;
+            }
+            .feature-icon {
+                font-size: 1.2rem;
+                color: #0d6efd;
+                margin-right: 10px;
+            }
+            .amount-card {
+                transition: transform 0.3s;
+                cursor: pointer;
+            }
+            .amount-card:hover {
+                transform: translateY(-5px);
+            }
+            .booking-summary {
+                background: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 15px;
+            }
+            .form-container {
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+        </style>
+    </head>
+    <body>
+        {% block slider %}
+        <div class="row py-5" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url({%static 'img/4.jpg'%}); background-repeat:no-repeat; background-position:center; background-size:cover; height: 40vh;">
+            <div class="col-sm-10 mx-auto py-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-decoration-none text-primary">Home</a></li>
+                        <li class="breadcrumb-item text-white">Explore</li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Book Vehicle</li>
+                    </ol>
+                </nav>
+                <h2 class="text-light my-4 display-4">Book Your Dream Ride</h2>
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block body %}
+        <div class="row mx-auto py-4" style="background-color: rgb(243, 240, 240);">
+            <div class="container">
+                <h4 class="mb-4">Rent {{ vehicle.name }} in <span class="text-danger">Lucknow</span></h4>
+                
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}" class="img-fluid mb-4 w-75">
+                                <h3 class="mb-4">{{ vehicle.name }}</h3>
+                                
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-4">
+                                        <div class="amount-card card h-100 border-primary">
+                                            <div class="card-body">
+                                                <h6 class="text-muted">Daily Rate</h6>
+                                                <h4 class="text-primary mb-0">₹{{ vehicle.price_per_day }}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="amount-card card h-100 border-primary">
+                                            <div class="card-body">
+                                                <h6 class="text-muted">Weekly Rate</h6>
+                                                <h4 class="text-primary mb-0">₹{{ vehicle.price_per_week }}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="amount-card card h-100 border-primary">
+                                            <div class="card-body">
+                                                <h6 class="text-muted">Monthly Rate</h6>
+                                                <h4 class="text-primary mb-0">₹{{ vehicle.price_per_month }}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <div class="vehicle-features text-start">
+                                    <h5 class="mb-3">Vehicle Features</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><i class="fas fa-gas-pump feature-icon"></i>Fuel Type: Petrol</p>
+                                            <p><i class="fas fa-cog feature-icon"></i>Transmission: Manual</p>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><i class="fas fa-users feature-icon"></i>Seating Capacity:2 </p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="form-container border-0 bg-primary text-light p-4 rounded">
+                            <h4 class="mb-4 text-center">Book Your Vehicle</h4>
+                           
+                            <form id="bookingForm" method="post" action="{% url 'booking_view'  %}">
+                                {% csrf_token %}
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Booking Type</label>
+                                    <div class="d-flex gap-3">
+                                        <div class="form-check">
+                                            <input type="radio" id="daily" name="booking_type" value="daily" class="form-check-input" checked>
+                                            <label for="daily" class="form-check-label">Daily</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" id="weekly" name="booking_type" value="weekly" class="form-check-input">
+                                            <label for="weekly" class="form-check-label">Weekly</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" id="monthly" name="booking_type" value="monthly" class="form-check-input">
+                                            <label for="monthly" class="form-check-label">Monthly</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="mb-3">
+                                    <label for="pickup-date" class="form-label">Pick Up Details</label>
+                                    <div class="d-flex gap-2">
+                                        <input type="date" id="pickup-date" name="pickup_date" class="form-control" required>
+                                        <input type="time" id="pickup-time" name="pickup_time" class="form-control" required>
+                                    </div>
+                                </div>
+                            
+                                <div class="mb-3">
+                                    <label for="dropoff-date" class="form-label">Drop Off Details</label>
+                                    <div class="d-flex gap-2">
+                                        <input type="date" id="dropoff-date" name="dropoff_date" class="form-control" required>
+                                        <input type="time" id="dropoff-time" name="dropoff_time" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="booking-summary bg-white text-dark p-3 rounded mb-3">
+                                    <h6 class="mb-3">Booking Summary</h6>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Duration:</span>
+                                        <span id="duration">0 Days</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Base Rate:</span>
+                                        <span id="baseRate">₹0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Taxes (18%):</span>
+                                        <span id="taxes">₹0</span>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between fw-bold">
+                                        <span>Total Amount:</span>
+                                        <span id="totalAmount">₹0</span>
+                                    </div>
+                                </div>
+                                
+                                <input type="hidden" name="vehicle_id" value="{{ vehicle.id }}">
+                                <button type="submit" class="btn btn-warning w-100 mb-3 fw-bold">
+                                    <i class="fas fa-motorcycle me-2"></i> Confirm Booking
+                                </button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('bookingForm');
+                const pickupDate = document.getElementById('pickup-date');
+                const dropoffDate = document.getElementById('dropoff-date');
+                const pickupTime = document.getElementById('pickup-time');
+                const dropoffTime = document.getElementById('dropoff-time');
+        
+                // Pass the vehicle price from Django to JavaScript
+                const pricePerDay = {{ vehicle.price_per_day }};
+                const pricePerWeek = {{ vehicle.price_per_week }};
+                const pricePerMonth = {{ vehicle.price_per_month }};
+                
+                const today = new Date();
+                pickupDate.min = today.toISOString().split('T')[0];
+        
+                pickupDate.addEventListener('change', function() {
+                    dropoffDate.min = this.value;
+                    if (dropoffDate.value && dropoffDate.value < this.value) {
+                        dropoffDate.value = this.value;
+                    }
+                    calculateTotalAmount();
+                });
+        
+                [pickupDate, dropoffDate, pickupTime, dropoffTime].forEach(element => {
+                    element.addEventListener('change', calculateTotalAmount);
+                });
+        
+                function calculateTotalAmount() {
+                    if (pickupDate.value && dropoffDate.value) {
+                        const start = new Date(pickupDate.value + 'T' + (pickupTime.value || '00:00'));
+                        const end = new Date(dropoffDate.value + 'T' + (dropoffTime.value || '00:00'));
+                        const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+        
+                        if (days > 0) {
+                            let baseRate;
+                            const bookingType = document.querySelector('input[name="booking_type"]:checked').value;
+        
+                            if (bookingType === 'daily') {
+                                baseRate = days * pricePerDay;
+                            } else if (bookingType === 'weekly') {
+                                baseRate = Math.floor(days / 7) * pricePerWeek;
+                            } else {
+                                baseRate = Math.floor(days / 30) * pricePerMonth;
+                            }
+        
+                            const taxes = baseRate * 0.18;
+                            const total = baseRate + taxes;
+        
+                            document.getElementById('duration').textContent = days + (days === 1 ? ' Day' : ' Days');
+                            document.getElementById('baseRate').textContent = '₹' + baseRate.toFixed(2);
+                            document.getElementById('taxes').textContent = '₹' + taxes.toFixed(2);
+                            document.getElementById('totalAmount').textContent = '₹' + total.toFixed(2);
+                        }
+                    }
+                }
+            });
+        </script>
+        
+        {% endblock %}
+    </body>
+</html>

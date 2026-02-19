@@ -1,0 +1,88 @@
+{% extends 'parent.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+   
+    {% block slider %}
+    <div class="row py-5 " style="background-image: url({%static 'img/4.jpg'%}); background-repeat:no-repeat; background-position:center; background-size:cover; height: 50vh;">
+        <div class="col-sm-10 mx-auto py-5 ">
+            <a href="{% url 'index' %}" class="text-decoration-none">
+                <span class="text-primary">Home</span>
+            </a>
+            {% block text %}
+            <span class="text-white mt-3"> / Login</span>
+            <h2 class="text-light my-4">Login</h2>
+            {% endblock %}
+        </div>
+    </div>
+    {% endblock %}
+   
+
+    {% block body %}
+    <div class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12 login-container d-flex flex-wrap py-4" style="box-shadow: 2px 4px 4px 4px rgb(177, 176, 176);">
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                    <div class="box1 " style="box-shadow: 2px solid lightgray;">
+                        <img src="{% static 'img/1.jpg' %}" alt="Login Illustration" class="img-fluid" sty>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="box2 py-4 px-2 ">
+                        <u><h3 class="text-center py-3">SIGN IN</h3></u>
+                        <form method="POST">
+                         {% csrf_token %}
+                            <label for="username" class="form-label my-2">Username(Email-Id)</label>
+                            <input type="text" class="form-control my-2" id="emailid" name="emailid" placeholder="Username" required>
+                            <label for="password" class="form-label my-2">Password</label>
+                            <input type="password" class="form-control my-2" id="password" name="password" placeholder="Password" required>
+                            <div class="text-center my-3">
+                                <button type="submit" class="btn btn-success ">Login</button>
+                            </div>
+                        </form>
+                        <p class="py-3 text-center">
+                            Not Registered Yet? <a href="{% url 'registration' %}">Register Now</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+<div id="message-popup" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 1050;">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+<script>
+    
+    window.onload = function() {
+        const popup = document.getElementById('message-popup');
+        if (popup) {
+            popup.style.display = 'block';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 5000); 
+        }
+    };
+</script>
+
+</body>
+</html>

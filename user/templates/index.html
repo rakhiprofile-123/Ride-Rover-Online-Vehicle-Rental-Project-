@@ -1,0 +1,244 @@
+{% extends 'parent.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride Rover - Rent, Ride, Relax</title>
+</head>
+
+<body>
+  {% block text %}
+  
+    
+    {% endblock %}
+
+    {% block body %}
+    
+      <div class="container">
+        
+        <div class="row" style="padding-top: 10vh;">
+          <div class="col-sm-12 text-center animate-text">
+            <span style="font-size: 5vw; font-family: sans-serif;">Planning to <b>Rent</b>?</span>
+          </div>
+        </div>
+      
+        <div class="row mt-3">
+          <div class="col-sm-12 text-center animate-text">
+            <p style="font-size: 3vw; color: #232323; font-family: sans-serif;">We Will Help</p>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="container my-5" style="margin-top: 3rem; margin-bottom: 3rem;">
+        <div class="row justify-content-center" style="display: flex; justify-content: center;">
+            <div class="col-sm-12 col-md-9 text-center" style="text-align: center;">
+                <a href="#">
+                    <button 
+                        class="btn custom-btn m-3" 
+                        style="
+                            background-color: #007bff; 
+                            color: white; 
+                            border: none; 
+                            padding: 10px 20px; 
+                            font-size: 1.2rem; 
+                            border-radius: 80px; 
+                            margin: 10px; 
+                            transition: background-color 0.3s ease, transform 0.2s ease;"
+                        onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='scale(1.05)';"
+                        onmouseout="this.style.backgroundColor='#007bff'; this.style.transform='scale(1)';">
+                        Call Us
+                    </button>
+                </a>
+                <a href="#">
+                    <button 
+                        class="btn custom-btn m-3" 
+                        style="
+                            background-color: #007bff; 
+                            color: white; 
+                            border: none; 
+                            padding: 10px 20px; 
+                            font-size: 1.2rem; 
+                            border-radius: 80px; 
+                            margin: 10px; 
+                            transition: background-color 0.3s ease, transform 0.2s ease;"
+                        onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='scale(1.05)';"
+                        onmouseout="this.style.backgroundColor='#007bff'; this.style.transform='scale(1)';">
+                        Contact Us
+                    </button>
+                </a>
+                <a href="#">
+                    <button 
+                        class="btn custom-btn m-3" 
+                        style="
+                            background-color: #007bff; 
+                            color: white; 
+                            border: none; 
+                            padding: 10px 20px; 
+                            font-size: 1.2rem; 
+                            border-radius: 80px; 
+                            margin: 10px; 
+                            transition: background-color 0.3s ease, transform 0.2s ease;"
+                        onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='scale(1.05)';"
+                        onmouseout="this.style.backgroundColor='#007bff'; this.style.transform='scale(1)';">
+                        Get Quote
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+  
+   <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-3">How It Works</h2>
+            <p class="text-center mb-5">
+                Your journey matters to us!<br>
+                We ensure a seamless and personalized experience for every ride.<br>
+                Need assistance? <a href="{% url 'contact' %}" class="text-link"><strong>Contact Us</strong></a> anytime.
+              </p>
+            <div class="process-flow d-flex justify-content-center align-items-center">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-wrapper">
+                        <h3 class="step">1</h3>
+                    </div>
+                    <h4 class="text-center">Choose Your Ride</h4>
+                    <p class="text-center">
+                        Browse our diverse fleet of chauffeur-driven vehicles<br>
+                        <a href="#" class="text-link"><strong>Explore Brands</strong></a>
+                    </p>
+                </div>
+                <div class="arrow">→</div>
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-wrapper">
+                        <h3 class="step">2</h3>
+                    </div>
+                    <h4 class="text-center">Initiate Booking</h4>
+                    <p class="text-center">
+                        Secure your ride with our quick booking form<br>
+                        <a href="#" class="text-link"><strong>Register Now</strong></a>
+                    </p>
+                </div>
+                <div class="arrow">→</div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-wrapper">
+                        <h3 class="step">3</h3>
+                    </div>
+                    <h4 class="text-center">Receive Confirmation</h4>
+                    <p class="text-center">
+                        Get prompt confirmation with all details<br>
+                        <a href="#" class="text-link"><strong>Get in Touch</strong></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+   
+    
+    
+   
+    
+    
+
+      
+<div class="row py-5">
+  <div class="col-sm-12 d-flex justify-content-center align-items-center">
+      <div class="col-sm-2 text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="box shadow bg-white mx-auto" 
+              style="height: 100px; width: 100px; border-radius: 50%; 
+                     background-image: url({% static 'img/map.avif' %}); 
+                     background-size: cover; background-position: center;">
+          </div>
+          <br>
+          <b>
+              <span class="fs-5" style="font-family: 'Courier New', Courier, monospace;">Boundless</span>
+          </b>
+          <p class="fs-6 text-secondary">Adventure</p>
+      </div>
+      <div class="col-sm-2 text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="box shadow bg-white mx-auto" 
+              style="height: 100px; width: 100px; border-radius: 50%; 
+                     background-image: url({% static 'img/price.png' %}); 
+                     background-size: cover; background-position: center;">
+          </div>
+          <br>
+          <b>
+              <span class="fs-5">Budget</span>
+          </b>
+          <p class="fs-6 text-secondary">Friendly</p>
+      </div>
+
+
+      <div class="col-sm-2 text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="box shadow bg-white mx-auto" 
+              style="height: 100px; width: 100px; border-radius: 50%; 
+                     background-image: url({% static 'img/dealer.png' %}); 
+                     background-size: cover; background-position: center;">
+          </div>
+          <br>
+          <b>
+              <span class="fs-5">Trusted</span>
+          </b>
+          <p class="fs-6 text-secondary">Dealer</p>
+      </div>
+
+      <div class="col-sm-2 text-center" data-aos="fade-up" data-aos-delay="400">
+          <div class="box shadow bg-white mx-auto" 
+              style="height: 100px; width: 100px; border-radius: 50%; 
+                     background-image: url({% static 'img/payment.webp' %}); 
+                     background-size: cover; background-position: center;">
+          </div>
+          <br>
+          <b>
+              <span class="fs-5">Trusted In-Store</span>
+          </b>
+          <p class="fs-6 text-secondary">Payment</p>
+      </div>
+  </div>
+</div>
+<section class="mbr-section info1 cid-s9DVDqQEF8 py-5 my-3" id="info1-kk" style="background-color: #f7f9fc;">
+  <div class="container">
+    <div class="row justify-content-center content-row align-items-center">
+      <div class="media-container-column title col-12 col-lg-7 col-md-6">
+        <h2 class="align-left mbr-bold mbr-fonts-style display-2" style="color: #073B4C;">
+          Not finding what you're looking for?
+        </h2>
+        <p class="lead" style="color: #505050; font-size: 1.2rem; margin-top: 15px;">
+          We are here to help! Explore more or contact our support team for assistance.
+        </p>
+      </div>
+      <div class="media-container-column col-12 col-lg-5 col-md-6 text-lg-end text-md-end text-center">
+        <div class="mbr-section-btn py-4">
+          <a class="btn btn-primary display-4 m-2" href="{% url 'contact' %}" style="border-radius: 50px; padding: 10px 30px;">Go to Support</a>
+          <a class="btn btn-outline-secondary display-4 m-2" href="{% url 'signin' %}" style="border-radius: 50px; padding: 10px 30px;">Login</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+      duration: 800,
+      easing: 'ease-in-out', 
+      once: true, 
+  });
+</script>
+
+
+
+   
+ 
+
+      {% endblock %}
+</body>
+</html>

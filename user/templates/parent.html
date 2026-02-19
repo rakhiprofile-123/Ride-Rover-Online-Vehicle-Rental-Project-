@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link  href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{%static 'static/css/index.css'%}" type="text/css">
+    
+
+
+
+</head>
+<body>
+    
+  <div class="container-fluid">
+   
+     
+    <div class="row fixed-top" style="background-color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            
+            <a class="navbar-brand d-flex align-items-center" href="#" style="color: #570b1c; font-weight: bold;">
+              <img src="{% static 'img/logo.png' %}" alt="Logo" width="50" height="50" class="me-2">
+              Ride Rover
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+           
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+              <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+               
+                <li class="nav-item mx-3">
+                  <a class="nav-link active" aria-current="page" href="{%url 'index' %}" style="color: #B1A374;; font-weight: 500;">Home</a>
+                </li>
+               
+                <li class="nav-item mx-3">
+                  <a class="nav-link" href="{% url 'about_us' %}" style="color: #B1A374; font-weight: 500;">About Us</a>
+                </li>
+                
+                <li class="nav-item mx-3">
+                  <a href="{% url 'service' %}" class="nav-link" style="color: #B1A374; font-weight: 500;">
+                   
+                     Services
+                   
+                  </a>
+                </li>
+                <li class="nav-item mx-3">
+                  <a class="nav-link" href="{%url 'contact' %}" style="color: #B1A374; font-weight: 500;">Contact</a>
+                </li>
+               
+                
+                
+                
+                
+
+                
+               
+                
+               
+              {% if user.is_authenticated %}
+              <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      My Account
+                  </button>
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'ride' %}">Dashboard</a></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
+              </div>
+              {% else %}
+              <a href="{% url 'signin' %}" class="btn btn-primary">Login</a>
+              {% endif %}
+              <li class="nav-item mx-3">
+                <a href="{%url 'ride'%}">
+                    <button class="btn btn-success rounded-pill" style="height: 6vh; width: 10vw; font-weight: 650;">
+                       Ride
+                    </button>
+                </a>
+            </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+    <!-- navbar end  -->
+
+    <!-- slider start  -->
+    {% block slider %}
+<div class="row py-5"  style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url({%static 'img/4.jpg'%}); background-repeat:no-repeat; background-position:center; background-size:cover; height: 40vh;">
+    <div class="col-sm-10 mx-auto py-5     text-white" >
+        <a href="{% url 'index' %}" class="text-decoration-none">
+            <span class="text-primary fw-bold"></span>
+        </a>
+        <span class="text-white mt-2"> <span>
+        <h2 class="text-light my-4 display-4">Home</h2>
+    
+    </div>
+</div>
+{% endblock %}
+      
+
+    
+      {%block body%}
+
+      {%endblock%}
+
+    
+     <!-- slider end  --> 
+
+     
+      
+     
+      
+
+
+
+
+
+      
+
+      
+
+      
+       <!-- Footer Start -->
+       <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <!-- Footer Upper Section -->
+            <div class="row text-center text-md-start">
+                <!-- Logo and Tagline -->
+                <div class="col-md-4 mb-4">
+                    <a href="#" class="footer-logo">
+                        <img src="{% static 'img/logo.png' %}" alt="Ride Rover Logo" class="img-fluid mb-2">
+                    </a>
+                    <p class="fs-4">Rent, Ride, Relax</p>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h4 class="menu-title">About Us</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About Ride Rover</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Why Ride Rover</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Terms and Conditions</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div class="col-md-3 mb-4">
+                    <h4 class="menu-title">Contact Us</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:riderover@gmail.com" class="text-white text-decoration-none">riderover@gmail.com</a></li>
+                        <li><a href="tel:+918115733439" class="text-white text-decoration-none">+91 8115733439</a></li>
+                        <li><a href="tel:+917991800136" class="text-white text-decoration-none">+91 7991800136</a></li>
+                    </ul>
+                </div>
+                <!-- Location -->
+                <div class="col-md-2 mb-4">
+                    <h4 class="menu-title">Location</h4>
+                    <div class="location">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28472.676025322387!2d81.01999164403377!3d26.869056183613917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be266fe8bf89b%3A0xd7bc061535d2de5c!2sChinhat%2C%20Lucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1731862317195!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Footer Bottom Section -->
+            <div class="row justify-content-between align-items-center pt-4 border-top border-light">
+                <!-- Copyright -->
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 All Rights Reserved by Ride Rover</p>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+   <!-- Footer End  -->
+
+
+
+  </div>
+     
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+     
+
+</body>
+</html>

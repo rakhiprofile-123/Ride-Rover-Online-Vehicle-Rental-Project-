@@ -1,0 +1,140 @@
+{% extends "parent.html" %}
+{% load static %}
+
+{% block slider %}
+<div class="row py-5"  style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url({%static 'img/4.jpg'%}); background-repeat:no-repeat; background-position:center; background-size:cover; height: 40vh;">
+    <div class="col-sm-10 mx-auto py-5     text-white" >
+        <a href="{% url 'index' %}" class="text-decoration-none">
+            <span class="text-primary fw-bold">Home</span>
+        </a>
+        <span class="text-white mt-2"> / About Us</span>
+        <h2 class="text-light my-4 display-4">About Us</h2>
+    
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <p class="lead text-center">
+                Welcome to <strong>The Ride Rover</strong>, your trusted platform for renting vehicles online. 
+                We are dedicated to simplifying the process of vehicle rentals by offering a hassle-free and secure experience for both renters and vehicle owners.
+            </p>
+        </div>
+    </div>
+
+    
+    <div class="row align-items-center my-5">
+        
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="text-primary text-center py-2">Our Mission</h3>
+                    <p>
+                        In today’s fast-paced urban lifestyle, convenience and efficiency are essential. 
+                        At <strong>The Ride Rover</strong>, we bring these qualities to life by enabling users to search, book, and rent vehicles from the comfort of their homes or offices, without the challenges typically associated with traditional rental services.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <div class="row my-5">
+        <div class="col text-center">
+            <h3 class="text-primary">What We Offer</h3>
+            <p class="mb-4">Here’s what makes us unique:</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <i class="mdi mdi-car-side text-primary display-4"></i>
+                    <h5 class="fw-bold mt-3">User-Friendly Platform</h5>
+                    <p>Easily search and book vehicles with an intuitive interface.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <i class="mdi mdi-shield-check text-primary display-4"></i>
+                    <h5 class="fw-bold mt-3">Wide Selection</h5>
+                    <p>Various vehicles available from trusted owners</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <i class="mdi mdi-timer-sand text-primary display-4"></i>
+                    <h5 class="fw-bold mt-3">24/7 Booking </h5>
+                    <p>Book your preferred vehicle anytime, anywhere</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      
+
+    
+    <div class="row align-items-center my-5">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="text-primary text-center py-2">How It Works</h3>
+                    <p>
+                        Using our system, vehicle owners can register as sellers, offering their vehicles for rent, while customers can register as renters to access a wide range of vehicles. 
+                        Here’s what you need to know:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fa-regular fa-circle-check text-success"></i>
+                            <span class="ms-2" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Register and login as a vehicle renter</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fa-regular fa-circle-check text-success"></i>
+                            <span class="ms-2" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Browse available vehicles or list your own</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fa-regular fa-circle-check text-success"></i>
+                            <span class="ms-2" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Complete secure booking process</span>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check text-success"></i>
+                            <span class="ms-2" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Enjoy your rental experience</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+
+    
+    <div class="card shadow-sm mb-5">
+        <div class="card-body text-center">
+            <h3 class="text-primary">Why Choose Us?</h3>
+            <p class="mt-3">
+                Whether you're a vehicle owner or a renter, <strong>The Ride Rover</strong> bridges the gap to provide a safe, convenient, and efficient way to rent automobiles in urban environments. 
+                We prioritize safety, security, and convenience to ensure the best experience for all our users.
+            </p>
+            <div class="text-center mt-4">
+                
+                <a href="{% url 'registration' %}" class="btn btn-primary btn-lg">Get Started</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="text-center text-muted">
+        &copy; {{ current_year }} The Ride Rover. All rights reserved.
+    </div>
+</div>
+{% endblock %}
